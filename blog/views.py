@@ -20,5 +20,5 @@ def post_detail(request, year, month, day, post):
 		publish__month=month,
 		publish__day=day)
 	print("thisispost:")
-	print(post.author)
+	print(post.id)
 	return render(request, 'blog/detail.html', {'post':post})
