@@ -34,6 +34,7 @@ SITE_ID = 1
 
 INSTALLED_APPS = [
     'blog',
+    'account',
     'django_comments',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -123,3 +124,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = '/blog/'
