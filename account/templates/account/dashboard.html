@@ -1,8 +1,15 @@
 {% extends "base.html" %}
 
-{% block title %}Dashboard{% endblock %}
+{% block title %} <title>{{ user.username }}</title> {% endblock %}
 
 {% block content %}
 	<h1>Dashboard</h1>
-	<p>Welcome</p>
+	<h2>My own posts</h2>
+	<!-- TODO: current user's posts only -->
+	{% for post in posts %}
+		<h2><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h2>
+		<p>Published {{ post.publish }} by {{ post.author }}</p>
+		{{ post.body }}
+	{% endfor %}
+	<h2>Posts I liked</h2>
 {% endblock %}

@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 
+from blog.models import Post
 from .forms import UserRegistrationForm
 
 
@@ -27,5 +28,6 @@ def register_done(request):
 
 @login_required
 def dashboard(request):
-	return render(request, 'account/dashboard.html', {'sections': 'dashboard'})
+	posts = Post.objects.all()
+	return render(request, 'account/dashboard.html', {'posts': posts})
 
